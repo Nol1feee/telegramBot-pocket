@@ -1,11 +1,11 @@
 package boltdb
 
 import (
+	"github.com/Nol1feee/telegramBot-pocket/internal/storage"
 	"strconv"
 
-	storage "github.com/Nol1feee/telegramBot-pocket/pkg/storage"
-	"github.com/boltdb/bolt"
 	"errors"
+	"github.com/boltdb/bolt"
 )
 
 type TokenStorage struct {
@@ -23,7 +23,7 @@ func (s *TokenStorage) Save(chatID int, token string, bucket storage.Bucket) err
 	})
 }
 
-func (t *TokenStorage) 	Get(userId int, bucket storage.Bucket) (string, error) {
+func (t *TokenStorage) Get(userId int, bucket storage.Bucket) (string, error) {
 	var token string
 
 	err := t.db.View(func(tx *bolt.Tx) error {
@@ -33,7 +33,7 @@ func (t *TokenStorage) 	Get(userId int, bucket storage.Bucket) (string, error) {
 	})
 
 	if err != nil {
-		return "", nil
+		return "", err
 	}
 
 	if token == "" {

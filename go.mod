@@ -9,7 +9,9 @@ require (
 
 require (
 	github.com/boltdb/bolt v1.3.1 // indirect
+	github.com/go-chi/chi v1.5.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	golang.org/x/sys v0.9.0 // indirect
 )

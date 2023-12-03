@@ -3,7 +3,7 @@ package storage
 type Bucket string
 
 const (
-	AccessToken Bucket = "access_token"
+	AccessToken  Bucket = "access_token"
 	RequestToken Bucket = "request_token"
 )
 
