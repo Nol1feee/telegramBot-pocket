@@ -23,24 +23,25 @@ git clone https://github.com/Nol1feee/telegramBot-pocket
 - с помощью SDK вы можете получить request token, обменять его на access token и добавлять ссылки в pocket аккаунт
 ```go
 func main() {
-	//you can generate a consumer key on https://getpocket.com/developer/apps/
+	//вы можете сгенерировать consumer key на сайте https://getpocket.com/developer/apps/
     u, err := pocket.NewClient("your consumerKey", "https://redirectUri.com")
     if err != nil {
         log.Fatal("new client")
     }
 
+	//запрашиваем request token
     req, err := u.GetRequestToken()
     if err != nil {
         log.Fatal(err)
     }
 
-	// link must be sent to the client
+	// эту ссылку нужно отправить пользователю, чтобы он подтвердил право доступа вашего сервиса к его аккаунту
     autorizatioLink, err := u.GetAutorizationUrl(req)
     if err != nil {
 	log.Fatal(err)
     }
 
-	//infoUser = access token && username
+	//обмением request token на access токен
     infoUser, err := u.Authetication(req)
     if err != nil {
         log.Fatal(err)
@@ -48,7 +49,7 @@ func main() {
 
     u.AccessToken = infoUser.Access_token
 
-	//now you can add links to your pocket
+	//с помощью access токена добавляем ссылку в ваш pocket аккаунт
     err = u.Add("https://example.com")
     if err != nil {
         log.Fatal("add")
