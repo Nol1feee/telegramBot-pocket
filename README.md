@@ -4,7 +4,7 @@
         Телеграм бот, который сохраняет ваши ссылки в ваш <a href="https://getpocket.com/en/">pocket.</a>
     </h5>
     <p>
-        Русский | <a href="README.ru.md">English</a> 
+        Русский | <a href="README.en.md">English</a> 
     </p>
 </div>
 
@@ -55,7 +55,7 @@ func main() {
     }
 }
 ```
-## запуск проекта локально
+## запуск проекта
 1. настройте переменные окружение
 ```
 export CONSURMER_KEY= <вы можете сгенерировать consumer key на сайте https://getpocket.com/developer/apps/>
